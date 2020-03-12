@@ -115,15 +115,15 @@ def get_single_value_net(env, args):
     if args.value_net == "LSTM_Merge_MLP":
         return LSTM_Merge_MLP(
             device=device,
-            seq_len=seq_len, obs_input_size=input_size, rnn_hidden_size=50,
+            seq_len=seq_len, obs_input_size=input_size, rnn_hidden_size=20,
             num_layers=1, dropout=0.0, learning_rate=args.lr,
             act_input_size=act_size,
-            act_fc1_size=50, act_fc2_size=10, output_size=1,
+            act_fc1_size=20, act_fc2_size=10, output_size=1,
             activation=activation).to(device)
     if args.value_net == "LSTM_MLP_A2C":
         return LSTM_MLP_A2C(
             device=device,
-            seq_len=seq_len, input_size=input_size, hidden_size=50,
+            seq_len=seq_len, input_size=input_size, hidden_size=20,
             num_layers=1, dropout=0.0, learning_rate=args.lr,
             fc_size=30, output_size=1,
             activation=activation).to(device)

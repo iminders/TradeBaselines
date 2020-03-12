@@ -148,18 +148,18 @@ def get_policy_net(env, args):
     if args.policy_net == "LSTM_MLP":
         return LSTM_MLP(
             device=device, seq_len=seq_len,
-            input_size=input_size, hidden_size=50,
+            input_size=input_size, hidden_size=20,
             output_size=act_size, num_layers=1, dropout=0.0,
-            learning_rate=args.lr, fc_size=50, activation=activation,
+            learning_rate=args.lr, fc_size=20, activation=activation,
             ou_theta=0.15, ou_sigma=0.2, ou_mu=0).to(device)
     elif args.policy_net == "Random":
         return RandomPolicy(act_size)
     elif args.policy_net == "LSTM_MLP_A2C":
         return LSTM_MLP_A2C(
             device=device, seq_len=seq_len,
-            input_size=input_size, hidden_size=50,
+            input_size=input_size, hidden_size=20,
             output_size=act_size, num_layers=1, dropout=0.0,
-            learning_rate=args.lr, fc_size=50,
+            learning_rate=args.lr, fc_size=20,
             activation=activation).to(device)
     else:
         raise ValueError("Not implement policy_net: %s" % args.value_net)
